@@ -15,6 +15,14 @@ Route::get('/', function () {
     return view('welcome');
 });
 
+Route::get('/about','PagesController@about')->name('about');
+
+Route::get('/contact', 'PagesController@contact')->name('contact');
+
+Route::post('/contact', function (){
+    echo "Form Submitted";
+});
+
 Auth::routes();
 
 Route::get('/home', 'HomeController@index')->name('home');
