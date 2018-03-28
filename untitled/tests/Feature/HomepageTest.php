@@ -19,4 +19,12 @@ class HomepageTest extends TestCase
 
         $response->assertStatus(200);
     }
+
+    public function testLoginPage()
+    {
+        $response = $this->get('/login');
+
+        $response->assertStatus(200);
+    }
+
 }
