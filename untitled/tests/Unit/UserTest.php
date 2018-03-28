@@ -14,12 +14,24 @@ class UserTest extends TestCase
      *
      * @return void
      */
+
     public function testExample()
     {
         $cars = cars::find(1);
 
-      //  $year=(int)$cars->year;
+        //  $year=(int)$cars->year;
 
         $this->assertInternalType('string', $cars->model);
     }
+
+    public function testInsertCarName()
+    {
+                $cars = new cars();
+                $cars->make = 'Ford';
+                $cars->model = 'thirtyth65ree';
+                $cars->year = '1992';
+
+                $this->assertTrue($cars->save());
+    }
+
 }
