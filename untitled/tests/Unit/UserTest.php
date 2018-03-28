@@ -72,4 +72,16 @@ class UserTest extends TestCase
         $this->assertTrue($User->delete());
     }
 
+    public function testDeleteCarName()
+    {
+        $cars = new cars();
+        $cars->make = 'Ford';
+        $cars->model = 'thirtyth65ree';
+        $cars->year = '1992';
+        $cars->save();
+
+        $this->assertTrue($cars->delete());
+    }
+
+
 }
