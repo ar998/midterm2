@@ -53,4 +53,12 @@ class UserTest extends TestCase
         $this->assertTrue($User->save());
     }
 
+    public function testUpdateCarYear()
+    {
+        $cars = cars::find(1);
+        $cars->year = ('1775');
+
+        $this->assertTrue($cars->save());
+    }
+
 }
