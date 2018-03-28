@@ -22,15 +22,32 @@ class UserTest extends TestCase
     {
         $cars = cars::find(1);
 
-        //  $year=(int)$cars->year;
+      //  $year=(int)$cars->year;
 
         $this->assertInternalType('string', $cars->model);
     }
 
-    public function testCarcount()
+    public function testyeartype()
+    {
+        $cars = cars::find(1);
+
+        $year=(int)$cars->year;
+
+        $this->assertInternalType(IsType::TYPE_INT, $year);
+    }
+
+    public function testUsercount()
     {
         $User = User::all();
         $recordCount = $User->Count();
+
+        $this->assertEquals(50, $recordCount);
+    }
+
+    public function testCarcount()
+    {
+        $cars = cars::all();
+        $recordCount = $cars->Count();
 
         $this->assertEquals(50, $recordCount);
     }
@@ -93,13 +110,7 @@ class UserTest extends TestCase
         $this->assertTrue($cars->delete());
     }
 
-    public function testUsercount()
-    {
-        $User = User::all();
-        $recordCount = $User->Count();
 
-        $this->assertInternalType(IsType::TYPE_INT, $recordCount);
-    }
 
 
 }
