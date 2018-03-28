@@ -3,8 +3,10 @@
 namespace Tests\Unit;
 
 use App\User;
+use PHPUnit\Framework\Constraint\Count;
 use Tests\TestCase;
 use App\cars;
+use PHPUnit\Framework\Constraint\IsType;
 use Illuminate\Foundation\Testing\WithFaker;
 use Illuminate\Foundation\Testing\RefreshDatabase;
 
@@ -83,5 +85,12 @@ class UserTest extends TestCase
         $this->assertTrue($cars->delete());
     }
 
+    public function testUsercount()
+    {
+        $User = User::all();
+        $recordCount = $User->Count();
+
+        $this->assertInternalType(IsType::TYPE_INT, $recordCount);
+    }
 
 }
