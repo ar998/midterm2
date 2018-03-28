@@ -27,6 +27,14 @@ class UserTest extends TestCase
         $this->assertInternalType('string', $cars->model);
     }
 
+    public function testCarcount()
+    {
+        $User = User::all();
+        $recordCount = $User->Count();
+
+        $this->assertEquals(50, $recordCount);
+    }
+
     public function testInsertCarName()
     {
                 $cars = new cars();
@@ -92,5 +100,6 @@ class UserTest extends TestCase
 
         $this->assertInternalType(IsType::TYPE_INT, $recordCount);
     }
+
 
 }
