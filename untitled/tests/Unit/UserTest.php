@@ -61,4 +61,15 @@ class UserTest extends TestCase
         $this->assertTrue($cars->save());
     }
 
+    public function testDeleteUserName()
+    {
+        $User = new User();
+        $User->name = 'Akaash';
+        $User->email = 'akaash@yahoo.com';
+        $User->password = 'ag987654';
+        $User->save();
+
+        $this->assertTrue($User->delete());
+    }
+
 }
