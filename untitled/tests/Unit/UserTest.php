@@ -110,7 +110,12 @@ class UserTest extends TestCase
         $this->assertTrue($cars->delete());
     }
 
+    public function testCarMake()
+    {
+        $cars = cars::find(1);
+        $make=$cars->make;
 
-
+        $this->assertContains($make,['ford','honda','toyota']);
+    }
 
 }
